@@ -62,7 +62,11 @@ sim = resample(image, 4, method="mtf_target", target=target)
 ```
 
 Exemples complets : `examples/quickstart.py` (avec `--plot` pour la
-figure des fonctions de transfert) et `examples/benchmark.py`.
+figure des fonctions de transfert), `examples/benchmark.py` (mires
+synthétiques) et `examples/orthophoto.py` — cas réel : une
+orthophotographie de Toulouse réduite de 5 cm à 20 cm par les douze
+méthodes, avec indicateurs et extraits commentés dans
+[REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) §8.
 
 ## Catalogue des méthodes
 
@@ -131,7 +135,7 @@ deçà) et **oscillations** près des bords nets (phénomène de Gibbs).
   `floor(n / k)`. Avec `shape=`, le facteur vaut exactement `n / shape`.
   L'agrandissement (facteur < 1) n'est pas implémenté dans cette version
   (erreur explicite) ; l'architecture le permet (REFERENCE_TECHNIQUE.md
-  §8).
+  §9).
 - **Grille** (`grid=`) : `"center"` (défaut) — chaque pixel cible couvre
   exactement un bloc de `k` pixels source, l'image réduite a la même
   emprise que l'image source (convention du binning) ; `"origin"` — le

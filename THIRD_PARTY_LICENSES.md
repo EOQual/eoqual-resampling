@@ -32,3 +32,18 @@ Les 12 méthodes (`nearest`, `bilinear`, `bicubic`, `box`, `gaussian`,
 | eoqual-viz | `plot_curves` | 🟢 MIT |
 
 Aucune dépendance sous licence restrictive, aucun extra optionnel.
+
+## 3. Données des exemples
+
+| Données | Usage | Licence |
+|---|---|---|
+| *Orthophotoplan 2024*, Toulouse Métropole ([data.toulouse-metropole.fr](https://data.toulouse-metropole.fr/explore/dataset/orthophotoplan-2024/)) | `examples/orthophoto.py` ; extraits dans `resources/orthophoto_*.png` | 🟢 Licence Ouverte v2.0 (Etalab) : réutilisation libre, mention de la source |
+
+L'image source n'est pas versionnée. Les figures dérivées portent la
+mention « Orthophotoplan 2024 © Toulouse Métropole, Licence Ouverte v2.0
+(Etalab) ».
+
+Dépendances des exemples seulement (non installées avec le paquet) :
+matplotlib (licence Matplotlib, dérivée de la licence de la Python Software Foundation), tifffile (BSD-3-Clause),
+scikit-image (BSD-3-Clause), Pillow (MIT-CMU), rasterio (BSD-3-Clause,
+option `--save`).

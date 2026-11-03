@@ -4,6 +4,9 @@ Comparaison chiffrée des méthodes de réduction. Tableaux générés par
 `python examples/benchmark.py` (données synthétiques, déterministes) ;
 définitions des indicateurs : [REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) §7.
 
+Pour un cas réel (orthophotographie de 5 cm à 20 cm, extraits commentés),
+voir [REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) §8.
+
 ## 1. Protocole
 
 1. **Fonction de transfert** (`kernel_metrics`), facteurs 2, 3 et 4 :
