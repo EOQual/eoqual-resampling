@@ -8,7 +8,7 @@ définitions des indicateurs : [REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) 
 
 1. **Fonction de transfert** (`kernel_metrics`), facteurs 2, 3 et 4 :
    gain au Nyquist cible, fréquences de gain 0,9 et 0,1 (cycles par pixel
-   cible), part de l'énergie d'un spectre blanc qui se replie, rapport des
+   cible), énergie repliée rapportée à l'énergie conservée (spectre blanc), rapport des
    variances d'un bruit blanc (2D), dépassement d'un échelon unité (pire
    phase sous-pixel).
 2. **Mire de Fresnel** 1536 × 1536 (fréquence locale croissant du centre
@@ -29,7 +29,7 @@ anti-repliement, il replie comme le capteur simulé.
 
 ### Facteur 2
 
-| Méthode | MTF au Nyquist | f90 | f10 | transition | repliement | variance du bruit | dépassement |
+| Méthode | MTF au Nyquist | f90 | f10 | transition | énergie repliée / conservée | variance du bruit | dépassement |
 |---|---|---|---|---|---|---|---|
 | `nearest` | 1.000 | — | — | — | 0.9975 | 1.003 | 0.0 % |
 | `bilinear` | 0.707 | 0.288 | 0.936 | 0.649 | 0.2208 | 0.251 | 0.0 % |
@@ -49,7 +49,7 @@ anti-repliement, il replie comme le capteur simulé.
 
 ### Facteur 3
 
-| Méthode | MTF au Nyquist | f90 | f10 | transition | repliement | variance du bruit | dépassement |
+| Méthode | MTF au Nyquist | f90 | f10 | transition | énergie repliée / conservée | variance du bruit | dépassement |
 |---|---|---|---|---|---|---|---|
 | `nearest` | 1.000 | — | — | — | 2.0000 | 1.003 | 0.0 % |
 | `bilinear` | 1.000 | — | — | — | 2.0000 | 1.003 | 0.0 % |
@@ -69,7 +69,7 @@ anti-repliement, il replie comme le capteur simulé.
 
 ### Facteur 4
 
-| Méthode | MTF au Nyquist | f90 | f10 | transition | repliement | variance du bruit | dépassement |
+| Méthode | MTF au Nyquist | f90 | f10 | transition | énergie repliée / conservée | variance du bruit | dépassement |
 |---|---|---|---|---|---|---|---|
 | `nearest` | 1.000 | — | — | — | 2.9851 | 1.003 | 0.0 % |
 | `bilinear` | 0.924 | 0.575 | 1.873 | 1.297 | 1.0973 | 0.251 | 0.0 % |
@@ -139,7 +139,8 @@ f : plus grande composante de la fréquence locale, en cycles par pixel cible.
   préfiltrage, tout se replie (contraste résiduel 1 sur la mire). Pour
   un facteur pair et la grille `"center"`, `bilinear` moyenne deux pixels
   et se comporte comme `box`.
-- **`box`** : aucune oscillation, mais 26 % de l'énergie se replie et le
+- **`box`** : aucune oscillation, mais une énergie repliée égale à 26 % de
+  l'énergie conservée, et le
   contraste baisse dès les basses fréquences. À réserver au binning.
 - **`gaussian`, `mitchell`, `bicubic_aa`** : peu de repliement, peu ou pas
   d'oscillation, mais flou net (contraste conservé 0,71 à 0,92).

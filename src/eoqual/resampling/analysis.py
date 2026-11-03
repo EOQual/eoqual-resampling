@@ -106,8 +106,8 @@ def kernel_metrics(method: str, factor: float, **params) -> dict:
     - ``f90`` / ``f10`` : fréquence où le gain passe sous 0,9 / 0,1 ;
       ``transition`` = ``f10 - f90`` ;
     - ``aliasing`` : énergie au-delà du Nyquist cible rapportée à
-      l'énergie en deçà (spectre d'entrée blanc), soit la part de signal
-      qui se replie ;
+      l'énergie en deçà (spectre d'entrée blanc) : énergie repliée
+      rapportée à l'énergie conservée ;
     - ``noise_variance_ratio`` : variance d'un bruit blanc après réduction
       divisée par sa variance avant (image 2D) ;
     - ``overshoot`` : dépassement maximal d'un échelon unité (pire

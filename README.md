@@ -90,7 +90,7 @@ sous MIT, écrites à partir des publications citées.
 
 Résultats au facteur 3 (détail dans [BENCHMARK.md](BENCHMARK.md)) :
 
-| Méthode | MTF au Nyquist | repliement (énergie) | repliement mesuré sur mire | dépassement d'un bord |
+| Méthode | MTF au Nyquist | énergie repliée / conservée | repliement mesuré sur mire | dépassement d'un bord |
 |---|---|---|---|---|
 | `box` | 0,67 | 26 % | 0,26 | 0 % |
 | `lanczos` | 0,50 | 3,0 % | 0,039 | 6,5 % |
@@ -118,8 +118,8 @@ deçà) et **oscillations** près des bords nets (phénomène de Gibbs).
   thématiques) : `gaussian` ou `box`, plus flous ou plus repliés.
 - **Simuler un capteur** : `mtf_target`, avec la MTF de l'instrument
   visé ; elle replie comme le ferait le vrai capteur.
-- **Agréger des pixels** (binning, conservation exacte des moyennes par
-  bloc) : `box`.
+- **Agréger des pixels** (binning) : `box`, seule méthode à conserver
+  exactement la moyenne — donc le flux — de chaque bloc de pixels source.
 
 ## Conventions
 

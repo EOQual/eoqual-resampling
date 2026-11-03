@@ -49,7 +49,7 @@ def fmt(x, nd=3):
 
 def table_metrics(factor):
     print(f"\n### Facteur {factor}\n")
-    print("| Méthode | MTF au Nyquist | f90 | f10 | transition | repliement | variance du bruit | dépassement |")
+    print("| Méthode | MTF au Nyquist | f90 | f10 | transition | énergie repliée / conservée | variance du bruit | dépassement |")
     print("|---|---|---|---|---|---|---|---|")
     for m, p in VARIANTS:
         r = kernel_metrics(m, factor, **p)

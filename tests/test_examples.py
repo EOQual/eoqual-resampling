@@ -34,3 +34,9 @@ def test_plot_transfer_functions():
 
     fig = plot_transfer_functions(["box", "sinc_kaiser", "fourier"], 3)
     assert len(fig.data) == 3
+
+
+def test_documentation_figure(tmp_path):
+    pytest.importorskip("matplotlib")
+    chemin = _load("figures").figure_grille(chemin=tmp_path / "grille.png")
+    assert chemin.stat().st_size > 0

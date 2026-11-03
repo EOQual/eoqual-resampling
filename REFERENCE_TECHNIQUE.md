@@ -58,14 +58,15 @@ Le centre du pixel cible `i` est en `x_i` (coordonnées source) :
 | `"center"` (défaut) | `(i + 1/2) k - 1/2` | le bloc `[i k - 1/2, (i+1) k - 1/2]` | binning, même emprise que la source |
 | `"origin"` | `i k` | `[i k - k/2, i k + k/2]` | sous-échantillonnage « un pixel sur k » |
 
-```
-grille source :  | 0 | 1 | 2 | 3 | 4 | 5 |      (k = 3)
-"center"      :  |     0     |     1     |      x_0 = 1,   x_1 = 4
-"origin"      :  ..0..|     1     |  ...        x_0 = 0,   x_1 = 3
-```
+![Position des pixels cibles pour les grilles "center" et "origin", facteur 3](resources/grille_cible.png)
 
-Taille de sortie : `floor(n / k)` (seuls les pixels cibles entièrement
-couverts sont produits). Avec `shape=`, `k = n / shape` exactement :
+Avec `"origin"`, le premier pixel cible déborde d'un pixel source à
+gauche de l'image et le dernier ne couvre pas la fin de la ligne ; avec
+`"center"`, les pixels cibles pavent exactement l'image.
+Figure régénérée par `python examples/figures.py`.
+
+Taille de sortie : `floor(n / k)` dans les deux cas (avec `"center"`,
+ce sont exactement les pixels cibles entièrement couverts). Avec `shape=`, `k = n / shape` exactement :
 l'emprise est conservée.
 
 La convention `"center"` est celle d'un détecteur réel dont les pixels
@@ -121,7 +122,7 @@ blocs (vérifié par test).
 | Méthode | `phi(u)` | Remarque |
 |---|---|---|
 | `nearest` | 1 sur `[-1/2, 1/2[` | pour `k` pair et `grid="center"`, `x_i` tombe entre deux pixels : le second est retenu (décalage d'un demi-pixel source, inhérent) |
-| `bilinear` | `max(0, 1 - |u|)` | |
+| `bilinear` | `max(0, 1 - abs(u))` | |
 | `bicubic` | cubique de Keys, `a = -0,5` | |
 
 Pour `k` impair et `grid="center"`, les positions cibles tombent sur des
@@ -133,8 +134,8 @@ borne basse au benchmark.
 
 MTF : `sinc(f)` (pixel cible carré), 0,64 au Nyquist pour `k` entier
 grand (0,67 à `k = 3` sur la grille discrète). Aucune oscillation, mais
-repliement important (lobes secondaires du sinc : 26 % de l'énergie à
-`k = 3`). C'est le modèle d'intégration d'un détecteur aux pixels `k`
+repliement important (lobes secondaires du sinc : énergie repliée égale
+à 26 % de l'énergie conservée à `k = 3`, voir §7). C'est le modèle d'intégration d'un détecteur aux pixels `k`
 fois plus grands, sans optique.
 
 ### 4.3 `gaussian`
@@ -167,7 +168,7 @@ transition 0,37 → 0,64.
 `f_c = 0,5` (coupure au Nyquist cible : gain 1/2 au Nyquist),
 `σ = fwhm / 2,355`, `fwhm = 6` et `radius = 6` pixels cibles. C'est le
 sinus cardinal apodisé des notes de travail à l'origine du module (voir
-annexe A). Transition 0,42 → 0,58, repliement 1,6 % de l'énergie.
+annexe A). Transition 0,42 → 0,58, énergie repliée 1,6 % de l'énergie conservée.
 
 ### 4.7 `sinc_kaiser` — sinc fenêtré réglé par l'objectif (méthode par défaut)
 
@@ -185,7 +186,7 @@ fixe l'objectif :
 **À support égal, Kaiser et gaussienne se valent** (`radius=6` : mêmes
 indicateurs que `sinc_gaussian`, voir BENCHMARK.md) : le gain vient du
 support plus long, choisi pour atteindre l'objectif. Réglage par défaut :
-transition 0,45 → 0,55, repliement 1,1 % de l'énergie, trois fois moins
+transition 0,45 → 0,55, énergie repliée 1,1 %, repliement trois fois moindre
 que `sinc_gaussian` sur la mire de Fresnel. `transition=0.1` divise
 encore le repliement par deux (support 18 pixels cibles).
 
@@ -260,7 +261,7 @@ Modèles fournis (`eoqual.resampling.mtf`), à combiner par `product` :
 | Modèle | MTF | Au Nyquist |
 |---|---|---|
 | `gaussian_mtf(v)` | `exp(-a f²)`, isotrope | `v` |
-| `pixel_mtf(c)` | `|sinc(c fy) sinc(c fx)|`, pixel carré de côté `c` | 0,64 pour `c = 1` |
+| `pixel_mtf(c)` | `abs(sinc(c fy) · sinc(c fx))`, pixel carré de côté `c` | 0,64 pour `c = 1` |
 | `diffraction_mtf(fc)` | pupille circulaire non obstruée, coupure `fc` | — |
 
 Toute fonction `mtf(fy, fx)` convient (MTF mesurée interpolée, par
@@ -280,7 +281,7 @@ contre le gain mesuré sur des sinusoïdes, y compris repliées.
 |---|---|
 | `mtf_nyquist` | gain au Nyquist cible |
 | `f90`, `f10`, `transition` | fréquences où le gain passe sous 0,9 et 0,1 ; `transition = f10 - f90` |
-| `aliasing` | `∫_{0,5}^{k/2} G² / ∫_0^{0,5} G²` : part de l'énergie d'un spectre blanc qui se replie |
+| `aliasing` | `∫_{0,5}^{k/2} G² / ∫_0^{0,5} G²` : énergie repliée rapportée à l'énergie conservée, pour un spectre d'entrée blanc (2 = repliement total au facteur 3) |
 | `noise_variance_ratio` | variance d'un bruit blanc après / avant réduction (2D) ; `1/k²` pour `box` |
 | `overshoot` | dépassement maximal d'un échelon unité, pire phase sous-pixel |
 
@@ -293,15 +294,16 @@ pixels cibles : son spectre vaut `σ² |G|²` replié. eoqual-measure
 - **Agrandissement** (facteur < 1) : les noyaux et le moteur séparable le
   permettent déjà (dilatation par `max(k, 1)`, coupure au Nyquist
   source) ; il reste à l'exposer, à le tester et à documenter les noyaux
-  d'interpolation (MTF, bruit corrélé). Refusé explicitement dans cette
-  version.
+  d'interpolation : leur MTF et la variance du bruit dépendent de la
+  phase d'interpolation (à un demi-pixel, tout noyau symétrique annule le
+  Nyquist et corrèle le bruit). Refusé explicitement dans cette version.
 - **Pixels invalides** (NaN, masque de validité) : normalisation des
   poids sur les seuls pixels valides (méthodes séparables).
 - **Grandes images** : traitement par tuiles avec recouvrement du support
   (`eoqual.core.tiling`), lecture et écriture par blocs.
 - **Splines aux moindres carrés** (Unser, Aldroubi & Eden, 1995) :
   réduction optimale au sens L2 dans l'espace des splines.
-- **BCO** (bicubique d'OTB) et autres noyaux des chaînes de production,
+- **Noyau BCO** d'Orfeo ToolBox et autres noyaux des chaînes de production,
   pour comparer à ce qu'elles produisent.
 - **Brique commune** : si un deuxième module EOQual a besoin de réduire
   une image (simulateur d'eoqual-measure, pyramide de la déconvolution
@@ -310,7 +312,7 @@ pixels cibles : son spectre vaut `σ² |G|²` replié. eoqual-measure
 
 ## 9. Tests
 
-Données synthétiques uniquement (`pytest`, 218 tests, < 2 s) :
+Données synthétiques uniquement (`pytest`, 219 tests, < 2 s) :
 
 - **contrat** : forme, type, valeurs finies, facteurs entiers, non
   entiers et différents par axe, `shape=`, multi-bandes, bords, erreurs
@@ -325,8 +327,9 @@ Données synthétiques uniquement (`pytest`, 218 tests, < 2 s) :
   image à bande limitée ; `mtf_target` reproduit la MTF visée, son
   repliement et compense la MTF source ;
 - **bruit** : variance mesurée = variance prédite à 8 % près ;
-- **exemples** : `quickstart.py` et (marqueur `slow`) les tableaux du
-  benchmark.
+- **exemples** : `quickstart.py`, la figure de la documentation
+  (`figures.py`, si matplotlib est installé) et (marqueur `slow`) les
+  tableaux du benchmark.
 
 ---
 
