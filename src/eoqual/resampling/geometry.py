@@ -108,7 +108,7 @@ def resolve_factors(
         raise NotImplementedError(
             "agrandissement (facteur < 1) non implémenté dans cette version : "
             "eoqual-resampling ne traite que la réduction de résolution "
-            "(voir docs/technique/reference.md, « Pistes »)"
+            "(voir docs/technique/conception.md, §9 « Pistes »)"
         )
     return factors, out
 

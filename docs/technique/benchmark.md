@@ -2,10 +2,10 @@
 
 Comparaison chiffrée des méthodes de réduction. Tableaux générés par
 `python examples/benchmark.py` (données synthétiques, déterministes) ;
-définitions des indicateurs : [référence technique](reference.md) §7.
+définitions des indicateurs : [diagnostic](diagnostic.md), §7.
 
 Pour un cas réel (orthophotographie de 5 cm à 20 cm, extraits commentés),
-voir [référence technique](reference.md) §8.
+voir [diagnostic et cas réel](diagnostic.md), §8.
 
 ## 1. Protocole
 

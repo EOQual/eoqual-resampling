@@ -8,7 +8,7 @@ Réduction de résolution d'images pensée pour l'observation de la Terre :
 à partir d'une image haute résolution, produire une image plus basse
 résolution « idéale », sans repliement, sans décalage géométrique et sans
 perte des niveaux, pour un facteur quelconque (entier ou non, différent
-par axe). Voir **[référence technique](docs/technique/reference.md)** pour
+par axe). Voir **[documents techniques](docs/technique/index.md)** pour
 le principe, l'implémentation et les limites de chaque méthode,
 **[benchmark](docs/technique/benchmark.md)** pour la comparaison chiffrée,
 **[THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)** pour l'audit des
@@ -66,7 +66,7 @@ figure des fonctions de transfert), `examples/benchmark.py` (mires
 synthétiques) et `examples/orthophoto.py` — cas réel : une
 orthophotographie de Toulouse réduite de 5 cm à 20 cm par les douze
 méthodes, avec indicateurs et extraits commentés dans
-[référence technique](docs/technique/reference.md) §8.
+[référence technique](docs/technique/diagnostic.md) §8.
 
 ## Catalogue des méthodes
 
@@ -134,7 +134,7 @@ deçà) et **oscillations** près des bords nets (phénomène de Gibbs).
 - **Facteur** : `>= 1` (réduction), scalaire ou par axe ; taille de sortie
   `floor(n / k)`. Avec `shape=`, le facteur vaut exactement `n / shape`.
   L'agrandissement (facteur < 1) n'est pas implémenté dans cette version
-  (erreur explicite) ; l'architecture le permet ([référence technique](docs/technique/reference.md)
+  (erreur explicite) ; l'architecture le permet ([référence technique](docs/technique/conception.md)
   §9).
 - **Grille** (`grid=`) : `"center"` (défaut) — chaque pixel cible couvre
   exactement un bloc de `k` pixels source, l'image réduite a la même

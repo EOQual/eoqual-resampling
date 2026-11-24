@@ -2,6 +2,9 @@
 
 ## Non publié
 
+- Référence technique découpée en documents spécialisés dans
+  `docs/technique/` (principe, méthodes, diagnostic et cas réel,
+  conception) ; les chapitres gardent leur numéro.
 - Documentation réorganisée : documents techniques dans
   `docs/technique/`, publiés avec l'API et les notes de version par
   Sphinx et MyST (`docs/`). Les documents décrivent l'état présent ; ce
@@ -12,7 +15,7 @@
   orthophotographie de Toulouse (Licence Ouverte v2.0) réduite de 5 cm à
   20 cm par les douze méthodes ; indicateurs (contraste des détails fins,
   repliement sur le spectre réel, décalage, écart à la moyenne par blocs)
-  et figures commentées dans `docs/technique/reference.md` §8.
+  et figures commentées dans `docs/technique/diagnostic.md` §8.
 - Figure PNG des conventions de grille (`examples/figures.py`).
 
 ## 0.1.0 (2026-11-03)

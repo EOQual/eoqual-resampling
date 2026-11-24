@@ -16,7 +16,7 @@ Ouvrez une issue avec :
 
 Ouvrez une issue décrivant la méthode (nom, référence bibliographique,
 ce qu'elle apporte par rapport au catalogue — voir
-[référence technique](docs/technique/reference.md)). Pas besoin de savoir l'implémenter pour la
+[documents techniques](docs/technique/index.md)). Pas besoin de savoir l'implémenter pour la
 proposer.
 
 ## Implémenter une méthode
@@ -61,7 +61,7 @@ Mettre à jour [benchmark](docs/technique/benchmark.md) avec `examples/benchmark
 ## Documentation
 
 Toute méthode nouvelle ou modifiée doit rester reflétée dans `README.md`
-(catalogue), [référence technique](docs/technique/reference.md) (principe, implémentation,
+(catalogue), [documents techniques](docs/technique/index.md) (principe, implémentation,
 limites), `THIRD_PARTY_LICENSES.md` (licence) et [bibliographie](docs/technique/bibliographie.md)
 (référence).
 
