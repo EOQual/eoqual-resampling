@@ -3,7 +3,7 @@
 Publications à partir desquelles les méthodes ont été implémentées, et
 références des choix de conception. Aucun code tiers n'a été consulté
 pour écrire les méthodes de ce paquet (voir
-[THIRD_PARTY_LICENSES.md](THIRD_PARTY_LICENSES.md)).
+[THIRD_PARTY_LICENSES.md](https://github.com/EOQual/eoqual-resampling/blob/main/THIRD_PARTY_LICENSES.md)).
 
 ## Échantillonnage et repliement
 
@@ -44,7 +44,7 @@ pour écrire les méthodes de ce paquet (voir
   `p + s` (eoqual-core), traitement des bords de `fourier` et
   `mtf_target`.
 
-## Évolutions envisagées
+## Pistes
 
 - M. Unser, A. Aldroubi, M. Eden, "Enlargement or reduction of digital
   images with minimum loss of information", *IEEE Trans. Image

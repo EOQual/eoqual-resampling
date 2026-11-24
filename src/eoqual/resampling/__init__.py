@@ -9,7 +9,7 @@ déformation géométrique, pensée pour l'observation de la Terre.
 >>> sim = resample(image, 4, method="mtf_target",
 ...                target=product(gaussian_mtf(0.3), pixel_mtf()))
 
-Voir ``README.md`` et ``REFERENCE_TECHNIQUE.md``.
+Voir ``README.md`` et ``docs/technique/reference.md``.
 """
 
 __version__ = "0.1.0"

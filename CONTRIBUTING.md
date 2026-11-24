@@ -16,7 +16,7 @@ Ouvrez une issue avec :
 
 Ouvrez une issue décrivant la méthode (nom, référence bibliographique,
 ce qu'elle apporte par rapport au catalogue — voir
-`REFERENCE_TECHNIQUE.md`). Pas besoin de savoir l'implémenter pour la
+[référence technique](docs/technique/reference.md)). Pas besoin de savoir l'implémenter pour la
 proposer.
 
 ## Implémenter une méthode
@@ -32,7 +32,7 @@ Convention du projet :
   paramètres par défaut, référence) et construite dans `methods.py` ;
 - elle ne décale pas l'image et conserve une image uniforme (tests
   communs de `tests/test_methods.py`, qui la couvrent automatiquement) ;
-- sa référence est ajoutée à `BIBLIOGRAPHY.md`.
+- sa référence est ajoutée à [bibliographie](docs/technique/bibliographie.md).
 
 Une brique qui sert à deux modules EOQual au moins va dans eoqual-core
 (numpy et scipy seulement) ; une figure générique va dans eoqual-viz
@@ -56,11 +56,19 @@ Les tests ne s'appuient que sur des données synthétiques (géométrie et
 spectre connus). Les tests longs portent le marqueur `slow`
 (`pytest -m "not slow"` pour une passe rapide).
 
-Mettre à jour `BENCHMARK.md` avec `examples/benchmark.py`.
+Mettre à jour [benchmark](docs/technique/benchmark.md) avec `examples/benchmark.py`.
 
 ## Documentation
 
 Toute méthode nouvelle ou modifiée doit rester reflétée dans `README.md`
-(catalogue), `REFERENCE_TECHNIQUE.md` (principe, implémentation,
-limites), `THIRD_PARTY_LICENSES.md` (licence) et `BIBLIOGRAPHY.md`
+(catalogue), [référence technique](docs/technique/reference.md) (principe, implémentation,
+limites), `THIRD_PARTY_LICENSES.md` (licence) et [bibliographie](docs/technique/bibliographie.md)
 (référence).
+
+## Documentation technique
+
+Les documents de `docs/technique/` décrivent l'état présent, sans dates ni
+numéros de version : ce qui change d'une version à l'autre va dans
+`CHANGELOG.md`, et une variante de méthode écartée se décrit au présent,
+dans la section « Variantes écartées » (ou « Choix de conception ») du
+document. Construction locale du site : `make html` dans `docs/`.

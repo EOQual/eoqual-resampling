@@ -11,7 +11,7 @@ Chaque entrée décrit :
 - ``params`` : paramètres et valeurs par défaut (unités : pixels ou
   cycles par pixel **cibles**) ;
 - ``license`` : licence du code qui fait le calcul ;
-- ``reference`` : référence courte (complète dans ``BIBLIOGRAPHY.md``).
+- ``reference`` : référence courte (complète dans ``docs/technique/bibliographie.md``).
 """
 
 from collections import OrderedDict

@@ -80,7 +80,7 @@ def resample(
         Axe des bandes d'une image multi-bandes.
     **params
         Paramètres de la méthode (voir ``METHODS_CONFIGS[method]["params"]``
-        et ``REFERENCE_TECHNIQUE.md``).
+        et ``docs/technique/reference.md``).
 
     Returns
     -------

@@ -2,11 +2,17 @@
 
 ## Non publié
 
+- Documentation réorganisée : documents techniques dans
+  `docs/technique/`, publiés avec l'API et les notes de version par
+  Sphinx et MyST (`docs/`). Les documents décrivent l'état présent ; ce
+  qui change d'une version à l'autre est dans ce fichier, et les
+  variantes de méthode écartées sont décrites au présent dans les
+  documents.
 - Exemple sur données réelles (`examples/orthophoto.py`) :
   orthophotographie de Toulouse (Licence Ouverte v2.0) réduite de 5 cm à
   20 cm par les douze méthodes ; indicateurs (contraste des détails fins,
   repliement sur le spectre réel, décalage, écart à la moyenne par blocs)
-  et figures commentées dans REFERENCE_TECHNIQUE.md §8.
+  et figures commentées dans `docs/technique/reference.md` §8.
 - Figure PNG des conventions de grille (`examples/figures.py`).
 
 ## 0.1.0 (2026-11-03)

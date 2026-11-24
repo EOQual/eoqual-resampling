@@ -1,11 +1,11 @@
-# Benchmark — eoqual-resampling 0.1.0
+# Benchmark
 
 Comparaison chiffrée des méthodes de réduction. Tableaux générés par
 `python examples/benchmark.py` (données synthétiques, déterministes) ;
-définitions des indicateurs : [REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) §7.
+définitions des indicateurs : [référence technique](reference.md) §7.
 
 Pour un cas réel (orthophotographie de 5 cm à 20 cm, extraits commentés),
-voir [REFERENCE_TECHNIQUE.md](REFERENCE_TECHNIQUE.md) §8.
+voir [référence technique](reference.md) §8.
 
 ## 1. Protocole
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Figures de la documentation (PNG dans ``resources/``).
+Figures de la documentation (PNG dans ``docs/technique/figures/``).
 
     python examples/figures.py
 
@@ -18,7 +18,7 @@ from matplotlib.patches import Rectangle  # noqa: E402
 
 from eoqual.resampling.geometry import target_positions  # noqa: E402
 
-RESOURCES = Path(__file__).resolve().parents[1] / "resources"
+RESOURCES = Path(__file__).resolve().parents[1] / "docs" / "technique" / "figures"
 
 
 def figure_grille(k=3, n_source=9, chemin=RESOURCES / "grille_cible.png"):

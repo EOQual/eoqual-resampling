@@ -19,7 +19,7 @@ les niveaux d'une image uniforme quel que soit le décalage sous-pixel.
 
 Références : Keys (1981) pour la cubique, Mitchell & Netravali (1988),
 Duchon (1979) pour Lanczos, Kaiser (1974) pour la fenêtre de Kaiser —
-voir ``BIBLIOGRAPHY.md``.
+voir ``docs/technique/bibliographie.md``.
 """
 
 from __future__ import annotations

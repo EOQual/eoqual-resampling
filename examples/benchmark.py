@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Benchmark des méthodes de réduction : génère les tableaux de BENCHMARK.md.
+Benchmark des méthodes de réduction : génère les tableaux de docs/technique/benchmark.md.
 
     python examples/benchmark.py > /tmp/benchmark_tables.md
 

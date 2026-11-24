@@ -31,7 +31,7 @@ Indicateurs, calculés sur la luminance pour chaque méthode :
 - **pixels hors [0, 255]** : dépassements dus aux oscillations, qui
   seront écrêtés à l'enregistrement en 8 bits.
 
-Figures (``resources/orthophoto_*.png``) : aperçu, spectre de la scène,
+Figures (``docs/technique/figures/orthophoto_*.png``) : aperçu, spectre de la scène,
 extraits « toits » et « parking » à 20 cm pour huit méthodes.
 
 Dépendances de l'exemple (non requises par le paquet) : tifffile,
@@ -50,7 +50,7 @@ from eoqual.resampling import METHODS_CONFIGS, resample, transfer_function
 from eoqual.resampling.methods import build_response
 from eoqual.resampling.mtf import gaussian_mtf, pixel_mtf, product
 
-RESOURCES = Path(__file__).resolve().parents[1] / "resources"
+RESOURCES = Path(__file__).resolve().parents[1] / "docs" / "technique" / "figures"
 K = 4                                   # 5 cm → 20 cm
 ATTRIBUTION = "Orthophotoplan 2024 © Toulouse Métropole, Licence Ouverte v2.0 (Etalab)"
 

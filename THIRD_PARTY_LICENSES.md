@@ -12,7 +12,7 @@ au regard de la licence MIT d'`eoqual-resampling` (`license.txt`).
 
 **Principe** : **aucun code tiers n'est copié dans ce dépôt.** Toutes les
 méthodes sont des implémentations originales, écrites à partir des
-publications de [BIBLIOGRAPHY.md](BIBLIOGRAPHY.md).
+publications de [bibliographie](docs/technique/bibliographie.md).
 
 ## 1. Méthodes
 
